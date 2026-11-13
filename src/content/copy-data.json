@@ -1,0 +1,137 @@
+{
+  "faq": [
+    {
+      "q": "Who will I work with?",
+      "a": "Me, Zvonimir Perkovic. A senior product designer with a frontend background, based in Cleveland, Ohio."
+    },
+    {
+      "q": "What happens after the intro call?",
+      "a": "If there's a fit, I send a one-page scope and a start date. Most teams start with the $1,500 audit."
+    },
+    {
+      "q": "Why not hire a full-time designer?",
+      "a": "You might later. A fixed Blueprint tests the agent's behavior now, before you commit to a hire or months of engineering."
+    },
+    {
+      "q": "How much of your time do I get?",
+      "a": "Each engagement has a fixed scope and price. I take on up to five Blueprint clients a year, so each one gets focus."
+    },
+    {
+      "q": "What do I get at the end?",
+      "a": "An autonomy contract, a behavior spec, a 12-scenario eval report and a coded prototype, plus a go or no-go call."
+    },
+    {
+      "q": "What tools do you use?",
+      "a": "Figma for design, and React with Tailwind for coded prototypes."
+    },
+    {
+      "q": "How fast is delivery?",
+      "a": "The Blueprint runs six weeks. On retainer, I work one request at a time with a written update every week."
+    },
+    {
+      "q": "What if the result isn't right?",
+      "a": "Revision rounds are agreed in the scope. Weekly updates surface problems early."
+    },
+    {
+      "q": "Is the prototype production-ready?",
+      "a": "No. It's a working prototype for testing and decisions. Building the production agent stays with your engineers."
+    },
+    {
+      "q": "Do you offer refunds?",
+      "a": "[PLACEHOLDER: refund terms]"
+    },
+    {
+      "q": "Do you need access to our agent?",
+      "a": "Yes. Evals run best against a staging version. With only recorded conversations, untestable cases are marked as not tested."
+    },
+    {
+      "q": "What is not included?",
+      "a": "Building the production agent, training models, and safety certification. One agent workflow per Blueprint."
+    },
+    {
+      "q": "Who is this a good fit for?",
+      "a": "AI startups and dev shops with an agent or assistant that acts for users, and a team already building it."
+    }
+  ],
+  "weeks": [
+    {
+      "n": "Week 1",
+      "t": "Kickoff and map",
+      "d": "Decisions, tools and permissions."
+    },
+    {
+      "n": "Week 2",
+      "t": "Autonomy contract",
+      "d": "What it may do alone, what needs approval, what it must never do."
+    },
+    {
+      "n": "Week 3",
+      "t": "Behavior spec",
+      "d": "Wording for hard moments: ambiguity, tool failure, takeover."
+    },
+    {
+      "n": "Week 4",
+      "t": "12-scenario eval",
+      "d": "Run against your real agent, with a pass/fail report."
+    },
+    {
+      "n": "Week 5",
+      "t": "Coded trust-surface prototype",
+      "d": "Evidence view, approvals, action history and takeover."
+    },
+    {
+      "n": "Week 6",
+      "t": "Readout",
+      "d": "Loom and one 60 minute call. Go or no-go."
+    }
+  ],
+  "prices": [
+    {
+      "id": "price-card-audit",
+      "name": "AI UX audit",
+      "price": "$1,500",
+      "sub": "Fixed price review",
+      "desc": "Find the trust, handoff and output problems in your AI agent. Credited in full toward the Blueprint. Delivered in about two weeks. [CHECK: turnaround]",
+      "items": [
+        "Review of your agent's experience",
+        "Output quality review: sample outputs, sort the failures, trace each to a fix",
+        "Prioritized fix list",
+        "Written report and Loom walkthrough",
+        "$1,500 credited toward the Blueprint"
+      ],
+      "featured": false
+    },
+    {
+      "id": "price-card-blueprint",
+      "name": "Agent Behavior Blueprint",
+      "price": "$18,000 fixed",
+      "sub": "Six weeks, one agent workflow",
+      "desc": "For AI startups and dev shops whose agent acts for users. Fixed scope, fixed price.",
+      "items": [
+        "Autonomy contract",
+        "Behavior spec and sample wording",
+        "12-scenario eval against your real agent, with a pass/fail report",
+        "Coded prototype of the trust moments",
+        "Weekly written updates",
+        "Kickoff and final review calls",
+        "Go or no-go and release-gate recommendations"
+      ],
+      "featured": true
+    },
+    {
+      "id": "price-card-retainer",
+      "name": "Async retainer",
+      "price": "$4,500 to $6,000 a month",
+      "sub": "Keep it working",
+      "desc": "For Blueprint clients who want their agent's behavior checked every month as models and prompts change. Pause or cancel monthly.",
+      "items": [
+        "Monthly eval reruns",
+        "Behavior drift fixes",
+        "New behavior and prototype work, one request at a time",
+        "Weekly written updates",
+        "Async via Slack or email"
+      ],
+      "featured": false
+    }
+  ]
+}
