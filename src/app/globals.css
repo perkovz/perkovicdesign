@@ -680,7 +680,7 @@ h3 {
   line-height: 1.55;
   position: relative;
 }
-/* Static cards only warm their border. Linked cards (none yet) also lift. */
+/* Static cards only warm their border. Linked cards also lift. */
 .card:hover {
   border-color: var(--line-warm);
 }

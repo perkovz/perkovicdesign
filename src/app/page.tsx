@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import { FaqList } from "@/components/Faq";
 import { HeroArt } from "@/components/HeroArt";
@@ -228,21 +229,37 @@ export default function Home() {
         <section className="section" id="demo" aria-labelledby="demo-title">
           <SectionHead id="demo-title" eyebrow={DEMO.eyebrow} title={DEMO.title} lead={DEMO.lead} />
           <div className="demo">
-            {DEMO.cards.map((c, i) => (
-              <article key={c.title} className="card demo-card" data-reveal="" style={d(i)}>
-                <div className={`demo-art demo-art--${c.art}`}>{c.art === "sky" ? <DemoArtSky /> : <DemoArtSage />}</div>
-                <div className="demo-body">
-                  <p className="demo-k">{c.kicker}</p>
-                  <h3>{c.title}</h3>
-                  <p>{c.body}</p>
-                  <ul className="tags" aria-label="Topics">
-                    {c.tags.map((t) => (
-                      <li key={t}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+            {DEMO.cards.map((c, i) => {
+              const inner = (
+                <>
+                  <div className={`demo-art demo-art--${c.art}`}>{c.art === "sky" ? <DemoArtSky /> : <DemoArtSage />}</div>
+                  <div className="demo-body">
+                    <p className="demo-k">{c.kicker}</p>
+                    <h3>{c.title}</h3>
+                    <p>{c.body}</p>
+                    <ul className="tags" aria-label="Topics">
+                      {c.tags.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              );
+              const linked = "href" in c && Boolean(c.href);
+              const cls = `card demo-card${linked ? " card--linked" : ""}`;
+              if (linked) {
+                return (
+                  <Link key={c.title} href={c.href} className={cls} data-reveal="" style={d(i)}>
+                    {inner}
+                  </Link>
+                );
+              }
+              return (
+                <article key={c.title} className={cls} data-reveal="" style={d(i)}>
+                  {inner}
+                </article>
+              );
+            })}
           </div>
         </section>
 

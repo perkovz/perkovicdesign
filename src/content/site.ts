@@ -120,6 +120,7 @@ export const DEMO = {
       body: "[PLACEHOLDER: demo to build, write after it exists] Draft: I ran [N] scenarios against a public agent, found where its handoff breaks, wrote the fix, and built a coded prototype of the better flow. Watch the Loom.",
       tags: ["Human handoff", "Evals", "Coded prototype"],
       art: "sky",
+      href: "/demo",
     },
     {
       kicker: "Worked example",

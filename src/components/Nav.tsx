@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { NextStart } from "@/components/NextStart";
 import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
+import { DEMO_NAV } from "@/content/demo";
 
 const SCROLL_DEEPEN_PX = 24;
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -11,7 +13,7 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export function Nav() {
+export function Nav({ variant = "home" }: { variant?: "home" | "demo" } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -109,19 +111,39 @@ export function Nav() {
   return (
     <>
       <header className="nav-shell">
-        <nav className={`nav${scrolled ? " is-scrolled" : ""}`} aria-label="Main">
-          <a className="logo" href="#top" aria-label="Perkovic Design Studio, back to top">
-            Perkovic<small>Design Studio</small>
-          </a>
-          <ul className="nav-links">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <a className="navlink" href={l.href}>
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav className={`nav${scrolled ? " is-scrolled" : ""}${variant === "demo" ? " nav--demo" : ""}`} aria-label="Main">
+          {variant === "demo" ? (
+            <Link className="logo" href="/" aria-label="Perkovic Design Studio, back to studio">
+              Perkovic<small>Design Studio</small>
+            </Link>
+          ) : (
+            <a className="logo" href="#top" aria-label="Perkovic Design Studio, back to top">
+              Perkovic<small>Design Studio</small>
+            </a>
+          )}
+          {variant === "demo" ? (
+            <Link className="back back--mobile" href="/">
+              ← {DEMO_NAV.back}
+            </Link>
+          ) : null}
+          {variant === "demo" ? (
+            <div className="nav-mid">
+              <Link className="back" href="/">
+                ← {DEMO_NAV.back}
+              </Link>
+              <span className="crumb">{DEMO_NAV.crumb}</span>
+            </div>
+          ) : (
+            <ul className="nav-links">
+              {NAV_LINKS.map((l) => (
+                <li key={l.href}>
+                  <a className="navlink" href={l.href}>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
           <div className="nav-actions">
             <a className="btn btn--48 nav-cta" {...BOOKING_LINK_PROPS}>
               Book an intro call
@@ -162,14 +184,25 @@ export function Nav() {
             </button>
           </div>
           <ul className="menu-links">
-            {NAV_LINKS.map((l, i) => (
-              <li key={l.href}>
-                <a className="menu-link" href={l.href} onClick={(e) => onSheetLink(e, l.href)}>
-                  {l.label}
-                  <span aria-hidden="true">0{i + 1}</span>
-                </a>
+            {variant === "demo" ? (
+              <li>
+                <Link className="menu-link" href="/">
+                  {DEMO_NAV.back}
+                  <span aria-hidden="true">00</span>
+                </Link>
               </li>
-            ))}
+            ) : null}
+            {NAV_LINKS.map((l, i) => {
+              const href = variant === "demo" ? `/${l.href}` : l.href;
+              return (
+                <li key={l.href}>
+                  <Link className="menu-link" href={href} onClick={(e) => onSheetLink(e, href)}>
+                    {l.label}
+                    <span aria-hidden="true">0{i + 1}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <div className="menu-actions">
             <a className="btn" {...BOOKING_LINK_PROPS}>
