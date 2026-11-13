@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { NextStart } from "@/components/NextStart";
-import { BOOKING_HREF, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
+import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
 
 const SCROLL_DEEPEN_PX = 24;
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -123,7 +123,7 @@ export function Nav() {
             ))}
           </ul>
           <div className="nav-actions">
-            <a className="btn btn--48 nav-cta" href={BOOKING_HREF}>
+            <a className="btn btn--48 nav-cta" {...BOOKING_LINK_PROPS}>
               Book an intro call
             </a>
             <button
@@ -172,7 +172,7 @@ export function Nav() {
             ))}
           </ul>
           <div className="menu-actions">
-            <a className="btn" href={BOOKING_HREF}>
+            <a className="btn" {...BOOKING_LINK_PROPS}>
               Book an intro call
             </a>
             <a className="link" href={EMAIL_HREF}>

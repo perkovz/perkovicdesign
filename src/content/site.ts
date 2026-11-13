@@ -5,8 +5,13 @@ import data from "./copy-data.json";
 
 export const EMAIL = "zvonimir@perkovicdesign.com";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
-// Until a dedicated booking link is chosen, "Book an intro call" opens an intro-call email.
-export const BOOKING_HREF = `mailto:${EMAIL}?subject=${encodeURIComponent("Intro call")}`;
+export const BOOKING_HREF =
+  "https://calendar.proton.me/bookings#QB0OhkzL_e31LOTjyUPIAUnW6vUAegGZfzPlOfrMGDM=";
+export const BOOKING_LINK_PROPS = {
+  href: BOOKING_HREF,
+  target: "_blank",
+  rel: "noopener noreferrer",
+} as const;
 
 export const NAV_LINKS = [
   { label: "What I do", href: "#what-i-do" },

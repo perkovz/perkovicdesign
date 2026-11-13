@@ -8,7 +8,7 @@ import { Nav } from "@/components/Nav";
 import { NextStart } from "@/components/NextStart";
 import { Vine } from "@/components/Vine";
 import {
-  BOOKING_HREF,
+  BOOKING_LINK_PROPS,
   DEMO,
   EMAIL,
   EMAIL_HREF,
@@ -63,7 +63,7 @@ export default function Home() {
               </p>
               <p className="lead">{HERO.subtitle}</p>
               <div className="ctas">
-                <a className="btn" href={BOOKING_HREF}>
+                <a className="btn" {...BOOKING_LINK_PROPS}>
                   Book an intro call
                 </a>
                 <a className="link" href="#pricing">
@@ -209,7 +209,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="pc-actions">
-                  <a className="btn" href={BOOKING_HREF} aria-describedby={`${p.id}-name`}>
+                  <a className="btn" {...BOOKING_LINK_PROPS} aria-describedby={`${p.id}-name`}>
                     Book an intro call
                   </a>
                   <p className="pc-em">
@@ -264,7 +264,7 @@ export default function Home() {
             <h2 id="cta-title">{FINAL_CTA.title}</h2>
             <p className="lead">{FINAL_CTA.lead}</p>
             <div className="cta-row">
-              <a className="btn" href={BOOKING_HREF}>
+              <a className="btn" {...BOOKING_LINK_PROPS}>
                 Book an intro call
               </a>
               <span className="or">

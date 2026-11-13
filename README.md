@@ -45,4 +45,4 @@ These remain visible on the page until they are filled. Search `src/content/site
 - `[PLACEHOLDER: refund terms]` (FAQ 10)
 - `[COMING SOON]`, `[PLACEHOLDER: demo to build, write after it exists]` and `[N]` scenarios (demo card 1)
 
-"Next start" is computed dynamically as one calendar month ahead in `America/New_York`, floored at January 2027 (see `src/lib/next-start.ts`). A small client component refreshes the label on mount so a static prerender never goes stale. Years of experience is now "10 years of experience." The booking-link and turnaround check placeholders were removed; every "Book an intro call" still opens an intro-call email (`BOOKING_HREF`) until a booking service is chosen.
+"Next start" is computed dynamically as one calendar month ahead in `America/New_York`, floored at January 2027 (see `src/lib/next-start.ts`). A small client component refreshes the label on mount so a static prerender never goes stale. Years of experience is now "10 years of experience." Every "Book an intro call" opens the Proton Calendar booking page (`BOOKING_HREF`); email fallbacks still use `mailto:zvonimir@perkovicdesign.com`.
