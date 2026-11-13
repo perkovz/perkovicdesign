@@ -11,6 +11,17 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
+.demo-page .eyebrow {
+  font-size: 12.5px;
+  letter-spacing: 1.75px;
+}
+.demo-page .sec-head {
+  margin-bottom: 28px;
+}
+.demo-page .sec-head h2 {
+  margin-top: 12px;
+  letter-spacing: 0;
+}
 .demo-page h3 {
   font-size: 21px;
   line-height: 1.25;
@@ -89,9 +100,9 @@
   align-items: center;
 }
 .demo-hero-art {
-  width: 100%;
-  max-width: 444px;
-  aspect-ratio: 444 / 260;
+  width: 342px;
+  max-width: 100%;
+  height: 260px;
   border-radius: 171px 171px 28px 28px;
   background: #edf3f7;
   border: 1px solid #d3e2ec;
@@ -102,9 +113,9 @@
   align-self: center;
 }
 .demo-hero-art svg {
-  width: 92%;
-  height: auto;
-  max-width: 400px;
+  width: 320px;
+  height: 200px;
+  max-width: 100%;
 }
 .demo-status {
   display: flex;
@@ -606,6 +617,16 @@
   .demo-page h2 {
     font-size: 44px;
   }
+  .demo-page .eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+  }
+  .demo-page .sec-head {
+    margin-bottom: 40px;
+  }
+  .demo-page .sec-head h2 {
+    letter-spacing: -0.01em;
+  }
   .demo-page h3 {
     font-size: 22px;
   }
@@ -684,6 +705,19 @@
     font-size: clamp(40px, 3.6vw, 52px);
     line-height: 1.08;
   }
+  .demo-page .sec-head {
+    margin-bottom: 40px;
+    gap: 60px;
+  }
+  .demo-page .sec-head-l {
+    width: 760px;
+    max-width: 100%;
+  }
+  .demo-page .sec-head h2 {
+    margin-top: 14px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
   .demo-page h3 {
     font-size: 21px;
   }
@@ -709,6 +743,10 @@
     aspect-ratio: auto;
     border-radius: 220px 220px 32px 32px;
     align-self: auto;
+  }
+  .demo-hero-art svg {
+    width: 400px;
+    height: 250px;
   }
   .demo-sec {
     padding: 112px 0 0;
@@ -748,7 +786,55 @@
   .demo-mrow {
     grid-template-columns: 240px 1fr 170px 170px;
   }
-  .demo-mrow > * {
+  .demo-mrow > *,
+  .demo-mrow .c1,
+  .demo-mrow .c2,
+  .demo-mrow.head .c2 {
+    padding: 18px 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .demo-page .demo-broke .card {
+    padding: 30px 30px 32px;
+  }
+  .demo-page .demo-broke .card h3 {
+    font-size: 24px;
+    line-height: 1.25;
+    margin: 16px 0 10px;
+  }
+  .demo-page .demo-broke .card p {
+    font-size: 16.5px;
+    line-height: 1.55;
+  }
+  .demo-status {
+    margin-top: 8px;
+  }
+  .demo-page .sec-head {
+    margin-bottom: 40px;
+    gap: 60px;
+  }
+  .demo-page .sec-head-l {
+    width: 760px;
+    max-width: 100%;
+  }
+  .demo-page .sec-head h2 {
+    font-size: 52px;
+    margin-top: 14px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .demo-page .eyebrow {
+    line-height: 1.6;
+  }
+  .nav--demo {
+    padding-left: 28px;
+  }
+  .demo-mrow > div,
+  .demo-mrow .c1,
+  .demo-mrow .c2,
+  .demo-mrow .c3,
+  .demo-mrow .c4 {
     padding: 18px 24px;
   }
 }
