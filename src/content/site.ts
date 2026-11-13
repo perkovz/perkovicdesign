@@ -1,13 +1,12 @@
 // All visible copy for the v3 "Beautiful world" studio site.
 // Source of truth: Perks Principal's Figma file yYlAejAdIjD48nB8odzQgn (v3p export).
-// Keep every [PLACEHOLDER], [MONTH], [N], [COMING SOON] and [CHECK: ...] token visible until Guru fills it.
+// Keep remaining [PLACEHOLDER], [N] and [COMING SOON] tokens visible until Guru fills them.
 import data from "./copy-data.json";
 
 export const EMAIL = "zvonimir@perkovicdesign.com";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
-// [PLACEHOLDER: booking link] Until a booking link exists, "Book an intro call" opens an email.
+// Until a dedicated booking link is chosen, "Book an intro call" opens an intro-call email.
 export const BOOKING_HREF = `mailto:${EMAIL}?subject=${encodeURIComponent("Intro call")}`;
-export const NEXT_START = "Next start: [MONTH]";
 
 export const NAV_LINKS = [
   { label: "What I do", href: "#what-i-do" },
@@ -60,7 +59,7 @@ export const WHAT_I_DO = {
   getEyebrow: "What you get",
   getTitle: "One senior product designer with a frontend background: behavior design, evals and code in one place.",
   get: [
-    { title: "Design, evals and code", body: "Senior product designer and former frontend developer. You work directly with me. [PLACEHOLDER: years of experience]" },
+    { title: "Design, evals and code", body: "Senior product designer and former frontend developer with 10 years of experience. You work directly with me." },
     { title: "Real prototypes", body: "A working coded prototype of your agent's trust moments: evidence, approvals, action history and human takeover." },
     { title: "Async by default", body: "Written updates and Loom walkthroughs instead of standing meetings. Fewer calls, clearer decisions." },
     { title: "Fixed scope, fixed price", body: "Every engagement has a clear scope and price up front. The retainer can be paused or ended monthly." },
@@ -137,7 +136,7 @@ export const FAQ = {
 export const FINAL_CTA = {
   eyebrow: "Prove your AI agent behaves before you ship it",
   title: "Let's make your agent something people trust.",
-  lead: "Book a 20 minute call. Tell me what your agent does, and I'll suggest where to start. [PLACEHOLDER: booking link]",
+  lead: "Book a 20 minute call. Tell me what your agent does, and I'll suggest where to start.",
 };
 
 export const FOOTER = {

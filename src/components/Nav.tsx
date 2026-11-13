@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BOOKING_HREF, EMAIL, EMAIL_HREF, NAV_LINKS, NEXT_START } from "@/content/site";
+import { NextStart } from "@/components/NextStart";
+import { BOOKING_HREF, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
 
 const SCROLL_DEEPEN_PX = 24;
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -179,10 +180,7 @@ export function Nav() {
             </a>
           </div>
           <div className="menu-foot">
-            <span className="pill">
-              <span className="dot" aria-hidden="true" />
-              {NEXT_START}
-            </span>
+            <NextStart />
           </div>
         </div>
       </div>

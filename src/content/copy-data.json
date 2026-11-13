@@ -91,7 +91,7 @@
       "name": "AI UX audit",
       "price": "$1,500",
       "sub": "Fixed price review",
-      "desc": "Find the trust, handoff and output problems in your AI agent. Credited in full toward the Blueprint. Delivered in about two weeks. [CHECK: turnaround]",
+      "desc": "Find the trust, handoff and output problems in your AI agent. Credited in full toward the Blueprint. Delivered in about two weeks.",
       "items": [
         "Review of your agent's experience",
         "Output quality review: sample outputs, sort the failures, trace each to a fix",

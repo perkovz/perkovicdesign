@@ -5,6 +5,7 @@ import { HeroArt } from "@/components/HeroArt";
 import { DemoArtSage, DemoArtSky, LeafIcon, PRINCIPLE_ICONS, Ripple } from "@/components/Icons";
 import { MotionController } from "@/components/MotionController";
 import { Nav } from "@/components/Nav";
+import { NextStart } from "@/components/NextStart";
 import { Vine } from "@/components/Vine";
 import {
   BOOKING_HREF,
@@ -15,7 +16,6 @@ import {
   FINAL_CTA,
   FOOTER,
   HERO,
-  NEXT_START,
   PRICING,
   PRINCIPLES,
   PROBLEM,
@@ -25,15 +25,6 @@ import {
 import { staggerMs } from "@/lib/motion";
 
 const d = (i: number) => ({ "--d": `${staggerMs(i)}ms` }) as CSSProperties;
-
-function NextStart() {
-  return (
-    <span className="pill">
-      <span className="dot" aria-hidden="true" />
-      {NEXT_START}
-    </span>
-  );
-}
 
 function SectionHead({ eyebrow, title, lead, id }: { eyebrow: string; title: string; lead: string; id: string }) {
   return (
