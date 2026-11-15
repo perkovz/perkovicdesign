@@ -10,6 +10,7 @@
   --sage-d: #4f6b55;
   --sage-dd: #445d4a;
   --sage-hover: #5b7a60;
+  --sage-pressed: #e2eadf;
   --sky: #b9d3e3; /* decorative only */
   --sky-d: #5f8ba6; /* decorative only */
   --clay: #d9a48f; /* decorative only */
@@ -218,6 +219,90 @@ h3 {
   background: var(--sage-dd);
   transform: scale(0.98);
   box-shadow: 0 2px 6px rgba(79, 107, 85, 0.18);
+}
+
+/* Trust-avatar intro-call button (Penpot "Button / Intro call with avatar").
+   Own class on purpose: .btn hover lift / press scale and 10px gap do not match the design. */
+.btn-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 56px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 28px 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sage-d);
+  color: var(--card);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.21;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(79, 107, 85, 0);
+  transition:
+    background-color 200ms var(--ease),
+    box-shadow 200ms var(--ease),
+    color 200ms var(--ease),
+    border-color 200ms var(--ease);
+}
+.btn-avatar picture,
+.btn-avatar img {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.btn-avatar img {
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--card);
+}
+@media (hover: hover) {
+  .btn-avatar:hover {
+    background: var(--sage-hover);
+    box-shadow: 0 2px 8px rgba(79, 107, 85, 0.22);
+  }
+}
+.btn-avatar:active {
+  background: var(--sage-dd);
+  box-shadow: 0 2px 8px rgba(79, 107, 85, 0);
+}
+.btn-avatar:focus-visible {
+  box-shadow: 0 2px 8px rgba(79, 107, 85, 0);
+}
+.btn-avatar--secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.btn-avatar--secondary img {
+  box-shadow: none;
+}
+@media (hover: hover) {
+  .btn-avatar--secondary:hover {
+    background: var(--tint-sage);
+  }
+}
+.btn-avatar--secondary:active {
+  background: var(--sage-pressed);
+}
+.trust-line {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0;
+  color: var(--muted);
+  max-width: 420px;
+}
+@media (min-width: 768px) {
+  .btn-avatar {
+    width: auto;
+  }
 }
 
 .link {
@@ -563,7 +648,16 @@ h3 {
   gap: 16px;
   margin-bottom: 24px;
 }
+.ctas .btn-avatar {
+  order: 0;
+}
+.ctas .trust-line {
+  order: 1;
+  text-align: center;
+  margin-inline: auto;
+}
 .ctas .link {
+  order: 2;
   align-self: center;
   font-size: 17px;
 }
@@ -1104,6 +1198,9 @@ h3 {
   gap: 14px;
   align-items: center;
 }
+.cta-row .trust-line {
+  text-align: center;
+}
 .or {
   font-size: 15px;
 }
@@ -1355,9 +1452,33 @@ h3 {
     margin-bottom: 32px;
   }
   .ctas {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    justify-items: start;
     align-items: center;
-    gap: 24px;
+    column-gap: 24px;
+    row-gap: 12px;
+  }
+  .ctas .btn-avatar,
+  .ctas .link,
+  .ctas .trust-line {
+    order: 0;
+  }
+  .ctas .btn-avatar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .ctas .link {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+  .ctas .trust-line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    text-align: left;
+    margin-inline: 0;
   }
   .hero-art {
     margin-top: 48px;
@@ -1498,7 +1619,8 @@ h3 {
     align-items: center;
     gap: 20px;
   }
-  .pc--feat .pc-actions .btn {
+  .pc--feat .pc-actions .btn,
+  .pc--feat .pc-actions .btn-avatar {
     flex: none;
   }
   .demo {
@@ -1542,8 +1664,27 @@ h3 {
     font-size: 18px;
   }
   .cta-row {
-    flex-direction: row;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    justify-items: start;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 14px;
+  }
+  .cta-row .btn-avatar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .cta-row .or {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .cta-row .trust-line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    text-align: center;
   }
   .or {
     font-size: 16px;
@@ -2031,7 +2172,16 @@ h3 {
     transform: none;
     box-shadow: none;
   }
+  .btn-avatar:hover,
+  .btn-avatar:active,
+  .btn-avatar:focus-visible {
+    box-shadow: none;
+  }
+  .btn-avatar--secondary img {
+    box-shadow: none;
+  }
   .btn,
+  .btn-avatar,
   .link,
   .navlink::after,
   .menu-btn,

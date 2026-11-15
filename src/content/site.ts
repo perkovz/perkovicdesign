@@ -13,6 +13,9 @@ export const BOOKING_LINK_PROPS = {
   rel: "noopener noreferrer",
 } as const;
 
+// Trust line under intro-call CTAs. Apostrophe is U+2019, per the approved copy.
+export const TRUST_LINE = "You\u2019ll talk with Zvonimir, the designer doing the work.";
+
 export const NAV_LINKS = [
   { label: "What I do", href: "#what-i-do" },
   { label: "Six weeks", href: "#six-weeks" },
