@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { IntroCallButton } from "@/components/IntroCallButton";
 import { NextStart } from "@/components/NextStart";
 import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
 import { DEMO_NAV } from "@/content/demo";
@@ -205,9 +206,7 @@ export function Nav({ variant = "home" }: { variant?: "home" | "demo" } = {}) {
             })}
           </ul>
           <div className="menu-actions">
-            <a className="btn" {...BOOKING_LINK_PROPS}>
-              Book an intro call
-            </a>
+            <IntroCallButton />
             <a className="link" href={EMAIL_HREF}>
               {EMAIL}
             </a>

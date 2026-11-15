@@ -7,9 +7,9 @@ import { DemoArtSage, DemoArtSky, LeafIcon, PRINCIPLE_ICONS, Ripple } from "@/co
 import { MotionController } from "@/components/MotionController";
 import { Nav } from "@/components/Nav";
 import { NextStart } from "@/components/NextStart";
+import { IntroCallButton, TrustLine } from "@/components/IntroCallButton";
 import { Vine } from "@/components/Vine";
 import {
-  BOOKING_LINK_PROPS,
   DEMO,
   EMAIL,
   EMAIL_HREF,
@@ -64,12 +64,11 @@ export default function Home() {
               </p>
               <p className="lead">{HERO.subtitle}</p>
               <div className="ctas">
-                <a className="btn" {...BOOKING_LINK_PROPS}>
-                  Book an intro call
-                </a>
+                <IntroCallButton />
                 <a className="link" href="#pricing">
                   See pricing
                 </a>
+                <TrustLine />
               </div>
               <NextStart />
             </div>
@@ -210,9 +209,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="pc-actions">
-                  <a className="btn" {...BOOKING_LINK_PROPS} aria-describedby={`${p.id}-name`}>
-                    Book an intro call
-                  </a>
+                  <IntroCallButton aria-describedby={`${p.id}-name`} />
                   <p className="pc-em">
                     or email <a className="link link--quiet" href={EMAIL_HREF}>{EMAIL}</a>
                   </p>
@@ -281,9 +278,8 @@ export default function Home() {
             <h2 id="cta-title">{FINAL_CTA.title}</h2>
             <p className="lead">{FINAL_CTA.lead}</p>
             <div className="cta-row">
-              <a className="btn" {...BOOKING_LINK_PROPS}>
-                Book an intro call
-              </a>
+              <IntroCallButton variant="secondary" />
+              <TrustLine />
               <span className="or">
                 or email{" "}
                 <a className="link" href={EMAIL_HREF}>
