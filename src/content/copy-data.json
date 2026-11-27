@@ -21,10 +21,6 @@
       "a": "Me, Zvonimir Perkovic. A senior product designer with a frontend background, based in Cleveland, Ohio."
     },
     {
-      "q": "What happens after the intro call?",
-      "a": "If there's a fit, I send a one-page scope and a start date. Most teams start with an audit."
-    },
-    {
       "q": "Why not hire a full-time designer?",
       "a": "You might later. A fixed Blueprint tests the agent's behavior now, before you commit to a hire or months of engineering."
     },
@@ -51,6 +47,10 @@
     {
       "q": "Is the prototype production-ready?",
       "a": "No. It's a working prototype for testing and decisions. Building the production agent stays with your engineers."
+    },
+    {
+      "q": "What happens after the intro call?",
+      "a": "If there's a fit, I send a one-page scope and a start date. Most teams start with an audit."
     },
     {
       "q": "Do you offer refunds?",

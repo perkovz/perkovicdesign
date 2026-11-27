@@ -133,7 +133,7 @@ export const SLOTWISE_CTA = {
   title: "Is your team on version five?",
   // Price removed per Notion section 11 (no amounts on the site); the under line is the
   // section 11 replacement for the old /demo final CTA.
-  lead: "Send me your versions. In a 20 minute call I'll tell you where they disagree and whether the audit is worth it.",
+  lead: "Send me your versions. In a 20 minute call I'll tell you where they disagree and whether an audit is worth it.",
   under: "Start with an audit, credited in full toward the Blueprint.",
   button: "Book an intro call",
 };
