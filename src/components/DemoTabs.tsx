@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useId, useRef, useState, type KeyboardEvent } from "react";
-import { DEMO_BA, DEMO_TABS } from "@/content/demo";
+import { DEMO_BA, DEMO_TABS } from "@/content/slotwise";
 
 type Tab = (typeof DEMO_TABS)[number];
 
@@ -16,15 +16,6 @@ function AmbiguityPanel(tab: Extract<Tab, { id: "ambiguity" }>) {
         <i aria-hidden="true" />
         {tab.uncertainty}
       </p>
-      {tab.sources.map((s) => (
-        <div key={s.name} className="demo-src">
-          <div>
-            <div className="demo-src-name">{s.name}</div>
-            <div className="demo-src-meta">{s.meta}</div>
-          </div>
-          <div className="demo-src-val">{s.value}</div>
-        </div>
-      ))}
       <div className="demo-acts">
         {tab.actions.map((a) => (
           <MiniBtn key={a.label} label={a.label} primary={a.primary} />
@@ -222,12 +213,7 @@ function BeforePanel() {
         </div>
         <div className="demo-msg is-agent">
           <div className="demo-who">{DEMO_BA.agent}</div>
-          {DEMO_BA.beforeAgentDone}
-        </div>
-        <div className="demo-raw">{DEMO_BA.beforeError}</div>
-        <div className="demo-msg is-agent">
-          <div className="demo-who">{DEMO_BA.agent}</div>
-          {DEMO_BA.beforeAgentFail}
+          {DEMO_BA.beforeSummary}
         </div>
         {DEMO_BA.issues.map((issue, i) => (
           <div key={issue} className="demo-issue">

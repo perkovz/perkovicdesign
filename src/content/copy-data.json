@@ -1,6 +1,22 @@
 {
   "faq": [
     {
+      "q": "Who is this a good fit for?",
+      "a": "Software companies of 30 to 500 people shipping an AI assistant, where several people are prompting their own version and nobody owns the final behavior."
+    },
+    {
+      "q": "Are you a fractional AI product owner or product manager?",
+      "a": "No. I don't take an ongoing seat on your team. I make the behavior decisions that seat would own, for one AI workflow, in a fixed scope, and hand them to your team in writing."
+    },
+    {
+      "q": "Do you build the agents or the orchestration?",
+      "a": "No. I design who does what, where work hands off and where a person steps in. Your engineers build and run it."
+    },
+    {
+      "q": "Do you build a full design system?",
+      "a": "No. I set up the small set of rules, tokens and components your AI tools need to stay consistent, plus the instructions they follow. A full design system is a separate project."
+    },
+    {
       "q": "Who will I work with?",
       "a": "Me, Zvonimir Perkovic. A senior product designer with a frontend background, based in Cleveland, Ohio."
     },
@@ -30,7 +46,7 @@
     },
     {
       "q": "What if the result isn't right?",
-      "a": "Revision rounds are agreed in the scope. Weekly updates surface problems early."
+      "a": "Every deliverable gets one round of written feedback from your team, and I revise it within the week. If the signed-off flow or spec still misses something we agreed on, I fix it before the readout at no extra cost."
     },
     {
       "q": "Is the prototype production-ready?",
@@ -38,7 +54,7 @@
     },
     {
       "q": "Do you offer refunds?",
-      "a": "[PLACEHOLDER: refund terms]"
+      "a": "If you cancel before kickoff, you get a full refund. The audit is billed once the review starts. The Blueprint is billed in two parts, at kickoff and at week 3, and work already delivered is not refunded. If I miss an agreed deliverable, I fix it at no extra cost."
     },
     {
       "q": "Do you need access to our agent?",
@@ -47,42 +63,38 @@
     {
       "q": "What is not included?",
       "a": "Building the production agent, training models, and safety certification. One agent workflow per Blueprint."
-    },
-    {
-      "q": "Who is this a good fit for?",
-      "a": "AI startups and dev shops with an agent or assistant that acts for users, and a team already building it."
     }
   ],
   "weeks": [
     {
       "n": "Week 1",
-      "t": "Kickoff and map",
-      "d": "Decisions, tools and permissions."
+      "t": "Line up every version",
+      "d": "Collect each stakeholder's version and map where they really disagree. You get a divergence map."
     },
     {
       "n": "Week 2",
-      "t": "Autonomy contract",
-      "d": "What it may do alone, what needs approval, what it must never do."
+      "t": "Write the autonomy contract",
+      "d": "Who it is for, top jobs, what it may do alone, what needs approval, what is out of scope."
     },
     {
       "n": "Week 3",
       "t": "Behavior spec",
-      "d": "Wording for hard moments: ambiguity, tool failure, takeover."
+      "d": "Exact wording for hard moments: ambiguity, missing data, tool failure, handing off to a person."
     },
     {
       "n": "Week 4",
-      "t": "12-scenario eval",
-      "d": "Run against your real agent, with a pass/fail report."
+      "t": "Map the handoffs, then draw one flow",
+      "d": "First, an agent workflow and handoff map: which agent or person does each step, where work passes between them, where a person steps in, and what happens when something fails. Then one user flow built on that map, which every stakeholder reviews and signs off. This is design work; your engineers own the runtime and orchestration."
     },
     {
       "n": "Week 5",
-      "t": "Coded trust-surface prototype",
-      "d": "Evidence view, approvals, action history and takeover."
+      "t": "Prove it",
+      "d": "A 12-scenario eval against your real agent, plus a coded prototype of the trust moments."
     },
     {
       "n": "Week 6",
       "t": "Readout",
-      "d": "Loom and one 60 minute call. Go or no-go."
+      "d": "Pass/fail report, a release bar and a clear go or no-go, in one Loom and one 60 minute call."
     }
   ],
   "prices": [
@@ -105,8 +117,8 @@
       "id": "price-card-blueprint",
       "name": "Agent Behavior Blueprint",
       "price": "$18,000 fixed",
-      "sub": "Six weeks, one agent workflow",
-      "desc": "For AI startups and dev shops whose agent acts for users. Fixed scope, fixed price.",
+      "sub": "Six weeks, one AI workflow",
+      "desc": "For software companies of 30 to 500 people shipping an AI assistant or agent, with more stakeholders than designers. Fixed scope, fixed price.",
       "items": [
         "Autonomy contract",
         "Behavior spec and sample wording",

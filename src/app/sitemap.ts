@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const SITE_URL = "https://www.perkovicdesign.com";
+import { PRIVACY_HREF, SITE_URL, SLOTWISE_HREF } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -10,9 +9,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${SITE_URL}/demo`,
+      url: `${SITE_URL}${SLOTWISE_HREF}`,
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}${PRIVACY_HREF}`,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }
