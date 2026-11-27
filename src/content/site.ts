@@ -122,7 +122,7 @@ export const WHAT_I_DO = {
     { title: "A decision, not more options.", body: "One written behavior everyone signed, instead of another round of prototypes." },
     { title: "Design and code in one person.", body: "A senior product designer who prototypes in code and writes the behavior and eval specs for AI assistants in production. You work directly with me." },
     { title: "Async by default.", body: "Written weekly updates and Loom walkthroughs instead of standing meetings." },
-    { title: "Fixed scope, fixed price.", body: "You know the cost before we start." },
+    { title: "Fixed scope.", body: "You know exactly what you get before we start." },
   ],
   who: [
     {
