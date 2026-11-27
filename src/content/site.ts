@@ -35,7 +35,7 @@ export const PRIVACY_HREF = "/privacy";
 export const META = {
   title: "Perkovic Design Studio | Five versions of your AI assistant, one decision",
   description:
-    "Your team generated five versions of your AI assistant. The Agent Behavior Blueprint gets you to one: an agreed autonomy contract, one signed-off flow and a 12-scenario eval. Six weeks, fixed scope.",
+    "Everyone on your team is an AI product owner now. I get them to one direction: an agreed autonomy contract, one signed-off flow and a 12-scenario eval. Six weeks, fixed scope.",
 };
 
 export const NAV_LINKS = [
