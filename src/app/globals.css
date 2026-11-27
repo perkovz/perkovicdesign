@@ -2307,6 +2307,12 @@ a.card.card--linked {
   margin-top: -12px;
   font-size: 18px;
 }
+.hero-proof {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
 .band-card {
   padding: 32px 24px;
 }

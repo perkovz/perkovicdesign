@@ -69,10 +69,7 @@ export default function Home() {
               <p className="lead">{HERO.subline}</p>
               <p className="promise">
                 <LeafIcon />
-                <span className="proof-full">{HERO.proof}</span>
-                <span className="proof-short">
-                  {HERO.proofShort}
-                </span>
+                <span>{HERO.underSubline}</span>
               </p>
               <div className="ctas">
                 <IntroCallButton />
@@ -82,6 +79,10 @@ export default function Home() {
                 <TrustLine />
               </div>
               <NextStart />
+              <p className="hero-proof">
+                <span className="proof-full">{HERO.proof}</span>
+                <span className="proof-short">{HERO.proofShort}</span>
+              </p>
             </div>
           </div>
           <HeroArt />

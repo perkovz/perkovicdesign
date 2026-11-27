@@ -5,8 +5,8 @@
       "a": "Software companies of 30 to 500 people shipping an AI assistant, where several people are prompting their own version and nobody owns the final behavior."
     },
     {
-      "q": "Are you a fractional AI product owner or product manager?",
-      "a": "No. I don't take an ongoing seat on your team. I make the behavior decisions that seat would own, for one AI workflow, in a fixed scope, and hand them to your team in writing."
+      "q": "Are you a fractional AI product owner?",
+      "a": "Not quite. I don't take an ongoing seat or replace anyone. Your team already has several people acting as product owners. I'm the bridge between them, so leadership, product, design, engineering and QA settle on one direction. I lead the behavior decisions with them, for one AI workflow, in a fixed scope, and hand them to your team in writing."
     },
     {
       "q": "Do you build the agents or the orchestration?",

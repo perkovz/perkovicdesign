@@ -43,13 +43,22 @@ export const NAV_LINKS = [
   { label: "FAQs", href: "#faqs" },
 ] as const;
 
+// Hero headline A/B (Notion: "Headline: pending Guru's pick (A recommended)").
+// To swap, change HEADLINE_PICK to "B". Per Notion, everything else in the hero stays as is.
+export const HEADLINE_OPTIONS = {
+  A: "Everyone on your team is an AI product owner now. I get them to one direction.",
+  B: "The AI product owner you can't hire yet.",
+} as const;
+export const HEADLINE_PICK: keyof typeof HEADLINE_OPTIONS = "A";
+
 export const HERO = {
   eyebrow: "Generating is cheap now. Deciding isn't.",
-  headline: "The AI product owner you can't hire yet.",
+  headline: HEADLINE_OPTIONS[HEADLINE_PICK],
   subline:
-    "I decide what your assistant should do, define what good looks like, and hand your team a spec they can build.",
-  proof: "Your team generated five versions of your AI assistant. I get you to one.",
-  proofShort: "Five versions of your assistant. One decision.",
+    "I work between leadership, product, design, engineering and QA to settle what your assistant should do, define what good looks like, and hand your team one spec they can build.",
+  underSubline: "Your team already has the speed. I help you own the direction.",
+  proof: "From the CEO to QA, your team generated five versions of your AI assistant. I get you to one.",
+  proofShort: "Five owners, five versions. One direction.",
   priceCard: {
     kicker: "Agent Behavior Blueprint",
     value: "$18,000 fixed",
@@ -67,16 +76,16 @@ export const HERO = {
 export const BEFORE_HIRE = {
   eyebrow: "Before you hire",
   title: "Get the decisions now. Make the hire later.",
-  body: "Get the decisions that role would make, in weeks, at a fixed price. What the assistant does alone, what needs a person, what it must never do, and the bar it has to pass before launch. Your team keeps the spec when I'm done.",
+  body: "You already have several people making product calls. Until you hire one AI product owner, I act as the bridge between them, so leadership, product, design, engineering and QA agree on what the assistant does alone, what needs a person, what it must never do, and the bar it has to pass before launch. Fixed price, done in weeks. Your team keeps the spec when I'm done.",
 };
 
 export const PROBLEM = {
   eyebrow: "The direction problem",
-  title: "When anyone can generate anything, AI products split apart.",
-  lead: "Your team shares one requirements doc. Everyone prompts from it. Every prompt still produces a different assistant, because nobody wrote down how it should behave.",
+  title: "When everyone can generate, everyone becomes a product owner.",
+  lead: "Your CEO, product lead, designer, developers and QA share one requirements doc. Each of them prompts from it and makes product calls along the way. You end up with five owners, five assistants and no shared direction, because nobody wrote down how it should behave.",
   cards: [
-    { ripple: "#B9D3E3", title: "Five versions, no owner.", body: "One version books meetings alone. Another asks every time. A third refuses. Each one is reasonable, and they cannot all ship." },
-    { ripple: "#A9BFA3", title: "Reviews that contradict.", body: "Five versions mean five sets of feedback, each pulling the build a different way." },
+    { ripple: "#B9D3E3", title: "Five owners, five versions.", body: "One version books meetings alone. Another asks every time. A third refuses. Each one is reasonable, and they cannot all ship." },
+    { ripple: "#A9BFA3", title: "Reviews that contradict.", body: "Each owner reviews against their own version, so the feedback pulls the build five ways and nobody is there to settle it." },
     { ripple: "#D9A48F", title: "Behavior nobody tested.", body: "Without a written contract and an eval, nobody can say what the assistant will do with a messy request, or when a person should step in." },
   ],
 };
