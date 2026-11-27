@@ -22,7 +22,7 @@
     },
     {
       "q": "What happens after the intro call?",
-      "a": "If there's a fit, I send a one-page scope and a start date. Most teams start with the $1,500 audit."
+      "a": "If there's a fit, I send a one-page scope and a start date. Most teams start with an audit."
     },
     {
       "q": "Why not hire a full-time designer?",
@@ -54,7 +54,7 @@
     },
     {
       "q": "Do you offer refunds?",
-      "a": "If you cancel before kickoff, you get a full refund. The audit is billed once the review starts. The Blueprint is billed in two parts, at kickoff and at week 3, and work already delivered is not refunded. If I miss an agreed deliverable, I fix it at no extra cost."
+      "a": "If you cancel before kickoff, you get a full refund. The audit is billed once the review starts. Work already delivered is not refunded. If I miss an agreed deliverable, I fix it at no extra cost."
     },
     {
       "q": "Do you need access to our agent?",
@@ -95,55 +95,6 @@
       "n": "Week 6",
       "t": "Readout",
       "d": "Pass/fail report, a release bar and a clear go or no-go, in one Loom and one 60 minute call."
-    }
-  ],
-  "prices": [
-    {
-      "id": "price-card-audit",
-      "name": "AI UX audit",
-      "price": "$1,500",
-      "sub": "Fixed price review",
-      "desc": "Find the trust, handoff and output problems in your AI agent. Credited in full toward the Blueprint. Delivered in about two weeks.",
-      "items": [
-        "Review of your agent's experience",
-        "Output quality review: sample outputs, sort the failures, trace each to a fix",
-        "Prioritized fix list",
-        "Written report and Loom walkthrough",
-        "$1,500 credited toward the Blueprint"
-      ],
-      "featured": false
-    },
-    {
-      "id": "price-card-blueprint",
-      "name": "Agent Behavior Blueprint",
-      "price": "$18,000 fixed",
-      "sub": "Six weeks, one AI workflow",
-      "desc": "For software companies of 30 to 500 people shipping an AI assistant or agent, with more stakeholders than designers. Fixed scope, fixed price.",
-      "items": [
-        "Autonomy contract",
-        "Behavior spec and sample wording",
-        "12-scenario eval against your real agent, with a pass/fail report",
-        "Coded prototype of the trust moments",
-        "Weekly written updates",
-        "Kickoff and final review calls",
-        "Go or no-go and release-gate recommendations"
-      ],
-      "featured": true
-    },
-    {
-      "id": "price-card-retainer",
-      "name": "Async retainer",
-      "price": "$4,500 to $6,000 a month",
-      "sub": "Keep it working",
-      "desc": "For Blueprint clients who want their agent's behavior checked every month as models and prompts change. Pause or cancel monthly.",
-      "items": [
-        "Monthly eval reruns",
-        "Behavior drift fixes",
-        "New behavior and prototype work, one request at a time",
-        "Weekly written updates",
-        "Async via Slack or email"
-      ],
-      "featured": false
     }
   ]
 }

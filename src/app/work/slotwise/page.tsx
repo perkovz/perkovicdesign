@@ -212,6 +212,7 @@ export default function SlotwisePage() {
             <p className="eyebrow">{SLOTWISE_CTA.eyebrow}</p>
             <h2 id="sw-cta-title">{SLOTWISE_CTA.title}</h2>
             <p className="lead">{SLOTWISE_CTA.lead}</p>
+            <p className="cta-under">{SLOTWISE_CTA.under}</p>
             <div className="cta-row">
               <a className="btn" {...BOOKING_LINK_PROPS}>
                 {SLOTWISE_CTA.button}

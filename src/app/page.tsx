@@ -14,13 +14,14 @@ import { Vine } from "@/components/Vine";
 import {
   ABOUT,
   BEFORE_HIRE,
+  BOOKING_LINK_PROPS,
   EMAIL,
   EMAIL_HREF,
   FAQ,
   FINAL_CTA,
   GUARDRAILS,
   HERO,
-  PRICING,
+  HOW_TO_START,
   PRINCIPLES,
   PROBLEM,
   PROOF,
@@ -74,8 +75,8 @@ export default function Home() {
               </p>
               <div className="ctas">
                 <IntroCallButton />
-                <a className="link" href="#pricing">
-                  See pricing
+                <a className="link" href={`#${HOW_TO_START.id}`}>
+                  {HOW_TO_START.title}
                 </a>
                 <TrustLine />
               </div>
@@ -254,42 +255,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing */}
-        <section className="section" id="pricing" tabIndex={-1} aria-labelledby="pricing-title">
-          <SectionHead id="pricing-title" eyebrow={PRICING.eyebrow} title={PRICING.title} lead={PRICING.lead} />
-          <div className="prices">
-            {PRICING.plans.map((p, i) => (
-              <article
-                key={p.id}
-                className={`pc${p.featured ? " pc--feat" : ""}`}
-                data-reveal=""
-                style={d(i)}
-                aria-labelledby={`${p.id}-name`}
-              >
-                {p.featured && <p className="pc-tag">Flagship</p>}
-                <h3 className="pc-nm" id={`${p.id}-name`}>
-                  {p.name}
-                </h3>
-                <p className="pc-pr">{p.price}</p>
-                <p className="pc-sub">{p.sub}</p>
-                <p className="pc-desc">{p.desc}</p>
-                <ul className="pc-list">
-                  {p.items.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
-                <div className="pc-actions">
-                  <IntroCallButton aria-describedby={`${p.id}-name`} />
-                  <p className="pc-em">
-                    or email <a className="link link--quiet" href={EMAIL_HREF}>{EMAIL}</a>
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <p className="note" data-reveal="">
-            {PRICING.note}
-          </p>
+        {/* How to start (replaces Pricing; #pricing kept as an alias for old links) */}
+        <section className="section" id={HOW_TO_START.id} tabIndex={-1} aria-labelledby="start-title">
+          <span id="pricing" className="anchor-alias" aria-hidden="true" />
+          <article className="card card--sage start-card" data-reveal="">
+            <h2 id="start-title">{HOW_TO_START.title}</h2>
+            <p className="start-lead">{HOW_TO_START.lead}</p>
+            <div className="start-actions">
+              <a className="btn" {...BOOKING_LINK_PROPS}>
+                {HOW_TO_START.primary}
+              </a>
+              <a className="btn btn--outline" {...BOOKING_LINK_PROPS}>
+                {HOW_TO_START.secondary}
+              </a>
+            </div>
+          </article>
         </section>
 
         {/* Proof: Slotwise worked example */}
@@ -335,7 +315,6 @@ export default function Home() {
             <Image src="/images/topo.jpg" alt="" fill sizes="(min-width: 1024px) 1200px, 100vw" />
           </div>
           <div className="cta-inner">
-            <p className="eyebrow">{FINAL_CTA.eyebrow}</p>
             <h2 id="cta-title">{FINAL_CTA.title}</h2>
             <p className="lead">{FINAL_CTA.lead}</p>
             <div className="cta-row">

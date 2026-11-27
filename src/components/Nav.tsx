@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { IntroCallButton } from "@/components/IntroCallButton";
 import { NextStart } from "@/components/NextStart";
-import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
+import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, LOGO, NAV_LINKS } from "@/content/site";
 
 const SCROLL_DEEPEN_PX = 24;
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -116,12 +116,12 @@ export function Nav({ variant = "home", crumb }: { variant?: "home" | "sub"; cru
       <header className="nav-shell">
         <nav className={`nav${scrolled ? " is-scrolled" : ""}${variant === "sub" ? " nav--demo" : ""}`} aria-label="Main">
           {variant === "sub" ? (
-            <Link className="logo" href="/" aria-label="Perkovic Design Studio, back to studio">
-              Perkovic<small>Design Studio</small>
+            <Link className="logo" href="/" aria-label={`${LOGO.label}, back to studio`}>
+              {LOGO.name} <small>{LOGO.sub}</small>
             </Link>
           ) : (
-            <a className="logo" href="#top" aria-label="Perkovic Design Studio, back to top">
-              Perkovic<small>Design Studio</small>
+            <a className="logo" href="#top" aria-label={`${LOGO.label}, back to top`}>
+              {LOGO.name} <small>{LOGO.sub}</small>
             </a>
           )}
           {variant === "sub" ? (
@@ -180,7 +180,9 @@ export function Nav({ variant = "home", crumb }: { variant?: "home" | "sub"; cru
           aria-label="Site menu"
         >
           <div className="menu-bar">
-            <span className="logo">Perkovic</span>
+            <span className="logo">
+              {LOGO.name} <small>{LOGO.sub}</small>
+            </span>
             <button ref={closeRef} type="button" className="menu-close" onClick={close}>
               <span className="menu-x" aria-hidden="true" />
               Close

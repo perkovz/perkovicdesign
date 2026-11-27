@@ -19,6 +19,9 @@ export const TRUST_LINE = "You\u2019ll talk with Zvonimir, the designer doing th
 
 export const SITE_URL = "https://www.perkovicdesign.com";
 export const SITE_NAME = "Perkovic Design Studio";
+// Header/footer wordmark (Guru, Nov 27): exactly "Perković studio". The legal and site
+// names (Perkovic Design LLC, Perkovic Design Studio) stay as they are in metadata and privacy.
+export const LOGO = { name: "Perković", sub: "studio", label: "Perković studio" } as const;
 export const OG_IMAGE = {
   url: "/images/hero.jpg",
   width: 1200,
@@ -38,13 +41,13 @@ export const META = {
 export const NAV_LINKS = [
   { label: "What I do", href: "#what-i-do" },
   { label: "Six weeks", href: "#six-weeks" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "How to start", href: "#how-to-start" },
   { label: "Example", href: SLOTWISE_HREF },
   { label: "FAQs", href: "#faqs" },
 ] as const;
 
 export const HERO = {
-  eyebrow: "Generating is cheap now. Deciding isn't.",
+  eyebrow: "Generating is cheap now. Aligning isn't.",
   // Decided Nov 27: the H1 is the short line; the second line sits directly under it as
   // large display type (a styled <p>, so the H1 stays short for screen readers and SEO).
   headline: "AI that behaves beautifully.",
@@ -54,10 +57,11 @@ export const HERO = {
   underSubline: "Your team already has the speed. I help you own the direction.",
   proof: "From the CEO to QA, your team generated five versions of your AI assistant. I get you to one.",
   proofShort: "Five owners, five versions. One direction.",
-  priceCard: {
+  // Offer card (Notion section 1: replaces the price card, no prices).
+  offerCard: {
     kicker: "Agent Behavior Blueprint",
-    value: "$18,000 fixed",
-    sub: "Six weeks, one AI workflow. Start with the $1,500 audit, credited in full.",
+    sub: "Six weeks, one AI workflow, fixed scope. Start with an audit, credited in full if you continue.",
+    button: "Start with an audit",
   },
   stripLabel: "For software teams of 30 to 500 shipping an AI assistant. Every Blueprint delivers:",
   chips: [
@@ -71,7 +75,7 @@ export const HERO = {
 export const BEFORE_HIRE = {
   eyebrow: "Before you hire",
   title: "Get the decisions now. Make the hire later.",
-  body: "You already have several people making product calls. Until you hire one AI product owner, I act as the bridge between them, so leadership, product, design, engineering and QA agree on what the assistant does alone, what needs a person, what it must never do, and the bar it has to pass before launch. Fixed price, done in weeks. Your team keeps the spec when I'm done.",
+  body: "You already have several people making product calls. Until you hire one AI product owner, I act as the bridge between them, so leadership, product, design, engineering and QA agree on what the assistant does alone, what needs a person, what it must never do, and the bar it has to pass before launch. Fixed scope, done in weeks. Your team keeps the spec when I'm done.",
 };
 
 export const PROBLEM = {
@@ -98,7 +102,7 @@ export const GUARDRAILS = {
     { ripple: "#D9A48F", title: "A quick consistency review.", body: "A pass over what's already been generated: what drifted, what to keep, and what to fix first." },
   ],
   howTo:
-    "The consistency review is part of the $1,500 audit. The full guardrails setup is an optional add-on to the Blueprint, scoped after the audit.",
+    "The consistency review is part of the audit. The full guardrails setup is an optional add-on to the Blueprint, scoped after the audit.",
   closing: "Guardrails keep what your team generates consistent. The Blueprint decides what it should do.",
 };
 
@@ -110,7 +114,7 @@ export const WHAT_I_DO = {
     ["Stakeholder alignment", "Blueprint"],
     ["Behavior specs and handoff maps", "Blueprint"],
     ["Agent evals and release bars", "Blueprint"],
-    ["AI audit and design guardrails", "Audit $1,500, guardrails as an add-on"],
+    ["AI audit and design guardrails", "Audit first, guardrails as an add-on"],
   ] as const,
   getEyebrow: "What you get",
   getTitle: "One senior product designer with a frontend background: behavior design, evals and code in one place.",
@@ -144,23 +148,23 @@ export const WHAT_I_DO = {
 export const SIX_WEEKS = {
   eyebrow: "The Agent Behavior Blueprint",
   title: "Six weeks from five versions to one.",
-  lead: "One agent workflow, $18,000 fixed. Each stage leaves you with a real deliverable, and a written update every week.",
+  lead: "One agent workflow, fixed scope. Each stage leaves you with a real deliverable, and a written update every week.",
   weeks: data.weeks,
   path: [
     {
       n: "1",
-      title: "Audit, $1,500, about two weeks.",
+      title: "Audit, about two weeks.",
       body: "I review your current versions and a sample of outputs, plus a quick consistency check of the screens your team has generated, and show you where they disagree and what to fix first. Credited in full if you continue.",
     },
     {
       n: "2",
-      title: "Agent Behavior Blueprint, $18,000 fixed, six weeks.",
+      title: "Agent Behavior Blueprint, six weeks, fixed scope.",
       body: "",
     },
     {
       n: "3",
       title: "Keep it on track (optional).",
-      body: "Monthly eval reruns and fixes as models and prompts change. $4,500 to $6,000 a month, pause or cancel monthly.",
+      body: "Monthly eval reruns and fixes as models and prompts change. Pause or cancel monthly.",
     },
     {
       n: "+",
@@ -182,12 +186,14 @@ export const PRINCIPLES = {
   ],
 };
 
-export const PRICING = {
-  eyebrow: "Pricing",
-  title: "Fixed prices: you know the cost before we start.",
-  lead: "Start with an audit. Go deeper only when the need and the scope are clear.",
-  plans: data.prices,
-  note: "2026 prices. One AI workflow per Blueprint.",
+// "How to start" replaces the Pricing section (Notion section 11, Guru Nov 27: no prices on the site).
+// Neither button has a target in Notion, so both open the existing Proton booking link.
+export const HOW_TO_START = {
+  id: "how-to-start",
+  title: "How to start",
+  lead: "Start with an audit. Go deeper with the Blueprint. Keep it on track if you need to.",
+  primary: "Start with an audit",
+  secondary: "Book a call",
 };
 
 export const PROOF = {
@@ -217,10 +223,9 @@ export const FAQ = {
 };
 
 export const FINAL_CTA = {
-  eyebrow: "Prove your AI agent behaves before you ship it",
-  title: "Send me your versions.",
+  title: "Prove your AI agent behaves before you ship it.",
   lead: "In a 20 minute call, tell me what your assistant does and who is prompting it. I'll tell you where the versions disagree and whether the audit is worth it.",
-  under: "Start with a $1,500 audit, credited in full toward the Blueprint.",
+  under: "Start with an audit, credited in full toward the Blueprint.",
 };
 
 export const FOOTER = {
