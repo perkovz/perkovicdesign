@@ -65,6 +65,7 @@ export default function Home() {
             <h1 id="hero-title" className="enter enter--1">
               {HERO.headline}
             </h1>
+            <p className="hero-second enter enter--1b">{HERO.headlineSecond}</p>
             <div className="hero-body enter enter--2">
               <p className="lead">{HERO.subline}</p>
               <p className="promise">

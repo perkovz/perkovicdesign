@@ -43,17 +43,12 @@ export const NAV_LINKS = [
   { label: "FAQs", href: "#faqs" },
 ] as const;
 
-// Hero headline A/B (Notion: "Headline: pending Guru's pick (A recommended)").
-// To swap, change HEADLINE_PICK to "B". Per Notion, everything else in the hero stays as is.
-export const HEADLINE_OPTIONS = {
-  A: "Everyone on your team is an AI product owner now. I get them to one direction.",
-  B: "The AI product owner you can't hire yet.",
-} as const;
-export const HEADLINE_PICK: keyof typeof HEADLINE_OPTIONS = "A";
-
 export const HERO = {
   eyebrow: "Generating is cheap now. Deciding isn't.",
-  headline: HEADLINE_OPTIONS[HEADLINE_PICK],
+  // Decided Nov 27: the H1 is the short line; the second line sits directly under it as
+  // large display type (a styled <p>, so the H1 stays short for screen readers and SEO).
+  headline: "AI that behaves beautifully.",
+  headlineSecond: "Everyone on your team is an AI product owner now. I get them to one direction.",
   subline:
     "I work between leadership, product, design, engineering and QA to settle what your assistant should do, define what good looks like, and hand your team one spec they can build.",
   underSubline: "Your team already has the speed. I help you own the direction.",
