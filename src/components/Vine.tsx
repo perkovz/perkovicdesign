@@ -58,7 +58,6 @@ function Week({ i, kind, style }: { i: number; kind: Kind; style: CSSProperties 
     <span className="wk-lab">
       <span className="wk-n">{w.n}</span>
       <span className="wk-t">{w.t}</span>
-      <span className="wk-d">{w.d}</span>
     </span>
   );
   const above = kind === "above" || kind === "above-end";

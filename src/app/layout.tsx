@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { META, OG_IMAGE, SITE_NAME, SITE_URL } from "@/content/site";
 import "./globals.css";
 
 // Fraunces needs its optical-size axis to match the Figma headline widths, which
@@ -22,16 +23,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://perkovicdesign.com"),
-  title: "Perkovic Design Studio | AI that behaves beautifully",
-  description:
-    "Prove your AI agent behaves before you ship it. Behavior design, evals and a coded prototype from one senior product designer, at fixed prices.",
+  metadataBase: new URL(SITE_URL),
+  title: META.title,
+  description: META.description,
   openGraph: {
-    title: "Perkovic Design Studio | AI that behaves beautifully",
-    description: "Prove your AI agent behaves before you ship it. One senior designer, fixed prices.",
-    url: "https://perkovicdesign.com",
-    siteName: "Perkovic Design Studio",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 900, alt: "A ginkgo leaf and fern on soft ripples." }],
+    title: META.title,
+    description: META.description,
+    url: "/",
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
     type: "website",
   },
 };

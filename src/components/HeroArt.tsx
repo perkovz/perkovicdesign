@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { HERO } from "@/content/site";
+import { BOOKING_LINK_PROPS, HERO } from "@/content/site";
 
 // Pointer-reactive depth: 2 to 4px drift and under 1deg tilt toward the pointer,
 // smoothed over about 600ms, fine pointers on desktop only, off under reduced motion.
@@ -111,9 +111,11 @@ export function HeroArt() {
       </div>
       <div className="price-tag-wrap enter enter--tag">
         <div className="price-tag" ref={tagRef}>
-          <div className="k">{HERO.priceCard.kicker}</div>
-          <div className="v">{HERO.priceCard.value}</div>
-          <div className="s">{HERO.priceCard.sub}</div>
+          <div className="k">{HERO.offerCard.kicker}</div>
+          <div className="s">{HERO.offerCard.sub}</div>
+          <a className="btn btn--48 offer-btn" {...BOOKING_LINK_PROPS}>
+            {HERO.offerCard.button}
+          </a>
         </div>
       </div>
     </div>

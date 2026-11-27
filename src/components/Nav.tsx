@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { IntroCallButton } from "@/components/IntroCallButton";
 import { NextStart } from "@/components/NextStart";
-import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, NAV_LINKS } from "@/content/site";
-import { DEMO_NAV } from "@/content/demo";
+import { BOOKING_LINK_PROPS, EMAIL, EMAIL_HREF, LOGO, NAV_LINKS } from "@/content/site";
 
 const SCROLL_DEEPEN_PX = 24;
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -14,7 +13,10 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export function Nav({ variant = "home" }: { variant?: "home" | "demo" } = {}) {
+const BACK_LABEL = "Back to studio";
+
+// "home" uses in-page anchors; "sub" (Slotwise, Privacy) shows Back to studio and a crumb.
+export function Nav({ variant = "home", crumb }: { variant?: "home" | "sub"; crumb?: string } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -112,27 +114,27 @@ export function Nav({ variant = "home" }: { variant?: "home" | "demo" } = {}) {
   return (
     <>
       <header className="nav-shell">
-        <nav className={`nav${scrolled ? " is-scrolled" : ""}${variant === "demo" ? " nav--demo" : ""}`} aria-label="Main">
-          {variant === "demo" ? (
-            <Link className="logo" href="/" aria-label="Perkovic Design Studio, back to studio">
-              Perkovic<small>Design Studio</small>
+        <nav className={`nav${scrolled ? " is-scrolled" : ""}${variant === "sub" ? " nav--demo" : ""}`} aria-label="Main">
+          {variant === "sub" ? (
+            <Link className="logo" href="/" aria-label={`${LOGO.label}, back to studio`}>
+              {LOGO.name} <small>{LOGO.sub}</small>
             </Link>
           ) : (
-            <a className="logo" href="#top" aria-label="Perkovic Design Studio, back to top">
-              Perkovic<small>Design Studio</small>
+            <a className="logo" href="#top" aria-label={`${LOGO.label}, back to top`}>
+              {LOGO.name} <small>{LOGO.sub}</small>
             </a>
           )}
-          {variant === "demo" ? (
+          {variant === "sub" ? (
             <Link className="back back--mobile" href="/">
-              ← {DEMO_NAV.back}
+              ← {BACK_LABEL}
             </Link>
           ) : null}
-          {variant === "demo" ? (
+          {variant === "sub" ? (
             <div className="nav-mid">
               <Link className="back" href="/">
-                ← {DEMO_NAV.back}
+                ← {BACK_LABEL}
               </Link>
-              <span className="crumb">{DEMO_NAV.crumb}</span>
+              {crumb ? <span className="crumb">{crumb}</span> : null}
             </div>
           ) : (
             <ul className="nav-links">
@@ -178,23 +180,25 @@ export function Nav({ variant = "home" }: { variant?: "home" | "demo" } = {}) {
           aria-label="Site menu"
         >
           <div className="menu-bar">
-            <span className="logo">Perkovic</span>
+            <span className="logo">
+              {LOGO.name} <small>{LOGO.sub}</small>
+            </span>
             <button ref={closeRef} type="button" className="menu-close" onClick={close}>
               <span className="menu-x" aria-hidden="true" />
               Close
             </button>
           </div>
           <ul className="menu-links">
-            {variant === "demo" ? (
+            {variant === "sub" ? (
               <li>
                 <Link className="menu-link" href="/">
-                  {DEMO_NAV.back}
+                  {BACK_LABEL}
                   <span aria-hidden="true">00</span>
                 </Link>
               </li>
             ) : null}
             {NAV_LINKS.map((l, i) => {
-              const href = variant === "demo" ? `/${l.href}` : l.href;
+              const href = variant === "sub" && l.href.startsWith("#") ? `/${l.href}` : l.href;
               return (
                 <li key={l.href}>
                   <Link className="menu-link" href={href} onClick={(e) => onSheetLink(e, href)}>

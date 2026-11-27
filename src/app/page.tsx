@@ -1,29 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { FaqList } from "@/components/Faq";
 import { HeroArt } from "@/components/HeroArt";
-import { DemoArtSage, DemoArtSky, LeafIcon, PRINCIPLE_ICONS, Ripple } from "@/components/Icons";
+import { Footer } from "@/components/Footer";
+import { DemoArtSky, LeafIcon, PRINCIPLE_ICONS, Ripple } from "@/components/Icons";
 import { MotionController } from "@/components/MotionController";
 import { Nav } from "@/components/Nav";
 import { NextStart } from "@/components/NextStart";
 import { IntroCallButton, TrustLine } from "@/components/IntroCallButton";
 import { Vine } from "@/components/Vine";
 import {
-  DEMO,
+  ABOUT,
+  BEFORE_HIRE,
+  BOOKING_LINK_PROPS,
   EMAIL,
   EMAIL_HREF,
   FAQ,
   FINAL_CTA,
-  FOOTER,
+  GUARDRAILS,
   HERO,
-  PRICING,
+  HOW_TO_START,
   PRINCIPLES,
   PROBLEM,
+  PROOF,
   SIX_WEEKS,
   WHAT_I_DO,
 } from "@/content/site";
 import { staggerMs } from "@/lib/motion";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const d = (i: number) => ({ "--d": `${staggerMs(i)}ms` }) as CSSProperties;
 
@@ -57,20 +66,25 @@ export default function Home() {
             <h1 id="hero-title" className="enter enter--1">
               {HERO.headline}
             </h1>
+            <p className="hero-second enter enter--1b">{HERO.headlineSecond}</p>
             <div className="hero-body enter enter--2">
+              <p className="lead">{HERO.subline}</p>
               <p className="promise">
                 <LeafIcon />
-                <span>{HERO.promise}</span>
+                <span>{HERO.underSubline}</span>
               </p>
-              <p className="lead">{HERO.subtitle}</p>
               <div className="ctas">
                 <IntroCallButton />
-                <a className="link" href="#pricing">
-                  See pricing
+                <a className="link" href={`#${HOW_TO_START.id}`}>
+                  {HOW_TO_START.title}
                 </a>
                 <TrustLine />
               </div>
               <NextStart />
+              <p className="hero-proof">
+                <span className="proof-full">{HERO.proof}</span>
+                <span className="proof-short">{HERO.proofShort}</span>
+              </p>
             </div>
           </div>
           <HeroArt />
@@ -85,6 +99,15 @@ export default function Home() {
             ))}
           </ul>
         </div>
+
+        {/* Before you hire */}
+        <section className="section band" aria-labelledby="hire-title">
+          <article className="card card--sage band-card" data-reveal="">
+            <p className="eyebrow">{BEFORE_HIRE.eyebrow}</p>
+            <h2 id="hire-title">{BEFORE_HIRE.title}</h2>
+            <p className="lead">{BEFORE_HIRE.body}</p>
+          </article>
+        </section>
 
         {/* Problem */}
         <section className="section problem" aria-labelledby="problem-title">
@@ -103,6 +126,34 @@ export default function Home() {
                 <p>{c.body}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* Guardrails */}
+        <section className="section problem guardrails" aria-labelledby="guardrails-title">
+          <div className="problem-q" data-reveal="">
+            <p className="eyebrow">{GUARDRAILS.eyebrow}</p>
+            <h2 id="guardrails-title">{GUARDRAILS.title}</h2>
+            <p className="lead">{GUARDRAILS.lead}</p>
+            <p className="guard-ex">{GUARDRAILS.example}</p>
+          </div>
+          <h3 className="guard-cards-title" data-reveal="">
+            {GUARDRAILS.cardsTitle}
+          </h3>
+          <div className="cards3">
+            {GUARDRAILS.cards.map((c, i) => (
+              <article key={c.title} className="card card--problem" data-reveal="" style={d(i)}>
+                <div className="ripple-wrap" data-parallax="0.05" data-parallax-max="12">
+                  <Ripple color={c.ripple} />
+                </div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="guard-foot" data-reveal="">
+            <p>{GUARDRAILS.howTo}</p>
+            <p className="guard-close">{GUARDRAILS.closing}</p>
           </div>
         </section>
 
@@ -143,12 +194,32 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <div className="fit" data-reveal="">
+            <div className="fit-l">
+              <h3>{WHAT_I_DO.fitTitle}</h3>
+              <ul className="fit-list">
+                {WHAT_I_DO.fit.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            </div>
+            <p className="fit-not">{WHAT_I_DO.notFor}</p>
+          </div>
         </section>
 
         {/* Six weeks */}
         <section className="section" id="six-weeks" tabIndex={-1} aria-labelledby="weeks-title">
           <SectionHead id="weeks-title" eyebrow={SIX_WEEKS.eyebrow} title={SIX_WEEKS.title} lead={SIX_WEEKS.lead} />
           <Vine />
+          <ol className="weeks-detail" aria-label="What happens each week">
+            {SIX_WEEKS.weeks.map((w, i) => (
+              <li key={w.n} className="weeks-item" data-reveal="" style={d(i)}>
+                <p className="weeks-n">{w.n}</p>
+                <h3>{w.t}</h3>
+                <p>{w.d}</p>
+              </li>
+            ))}
+          </ol>
           <div className="path">
             {SIX_WEEKS.path.map((c, i) => (
               <article key={c.n} className="card" data-reveal="" style={d(i)}>
@@ -159,7 +230,7 @@ export default function Home() {
                   <span className="sr-only">Step {c.n}: </span>
                   {c.title}
                 </h3>
-                <p>{c.body}</p>
+                {c.body ? <p>{c.body}</p> : null}
               </article>
             ))}
           </div>
@@ -184,80 +255,50 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing */}
-        <section className="section" id="pricing" tabIndex={-1} aria-labelledby="pricing-title">
-          <SectionHead id="pricing-title" eyebrow={PRICING.eyebrow} title={PRICING.title} lead={PRICING.lead} />
-          <div className="prices">
-            {PRICING.plans.map((p, i) => (
-              <article
-                key={p.id}
-                className={`pc${p.featured ? " pc--feat" : ""}`}
-                data-reveal=""
-                style={d(i)}
-                aria-labelledby={`${p.id}-name`}
-              >
-                {p.featured && <p className="pc-tag">Flagship</p>}
-                <h3 className="pc-nm" id={`${p.id}-name`}>
-                  {p.name}
-                </h3>
-                <p className="pc-pr">{p.price}</p>
-                <p className="pc-sub">{p.sub}</p>
-                <p className="pc-desc">{p.desc}</p>
-                <ul className="pc-list">
-                  {p.items.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
-                <div className="pc-actions">
-                  <IntroCallButton aria-describedby={`${p.id}-name`} />
-                  <p className="pc-em">
-                    or email <a className="link link--quiet" href={EMAIL_HREF}>{EMAIL}</a>
-                  </p>
-                </div>
-              </article>
-            ))}
+        {/* How to start (replaces Pricing; #pricing kept as an alias for old links) */}
+        <section className="section" id={HOW_TO_START.id} tabIndex={-1} aria-labelledby="start-title">
+          <span id="pricing" className="anchor-alias" aria-hidden="true" />
+          <article className="card card--sage start-card" data-reveal="">
+            <h2 id="start-title">{HOW_TO_START.title}</h2>
+            <p className="start-lead">{HOW_TO_START.lead}</p>
+            <div className="start-actions">
+              <a className="btn" {...BOOKING_LINK_PROPS}>
+                {HOW_TO_START.primary}
+              </a>
+              <a className="btn btn--outline" {...BOOKING_LINK_PROPS}>
+                {HOW_TO_START.secondary}
+              </a>
+            </div>
+          </article>
+        </section>
+
+        {/* Proof: Slotwise worked example */}
+        <section className="section" id="example" tabIndex={-1} aria-labelledby="example-title">
+          <SectionHead id="example-title" eyebrow={PROOF.eyebrow} title={PROOF.title} lead={PROOF.lead} />
+          <div className="demo demo--single">
+            <Link href={PROOF.card.href} className="card demo-card card--linked" data-reveal="">
+              <div className="demo-art demo-art--sky">
+                <DemoArtSky />
+              </div>
+              <div className="demo-body">
+                <p className="demo-k">{PROOF.card.kicker}</p>
+                <h3>{PROOF.card.title}</h3>
+                <span className="btn btn--48 demo-btn">{PROOF.card.button}</span>
+              </div>
+            </Link>
           </div>
           <p className="note" data-reveal="">
-            {PRICING.note}
+            {PROOF.small}
           </p>
         </section>
 
-        {/* Demo */}
-        <section className="section" id="demo" aria-labelledby="demo-title">
-          <SectionHead id="demo-title" eyebrow={DEMO.eyebrow} title={DEMO.title} lead={DEMO.lead} />
-          <div className="demo">
-            {DEMO.cards.map((c, i) => {
-              const inner = (
-                <>
-                  <div className={`demo-art demo-art--${c.art}`}>{c.art === "sky" ? <DemoArtSky /> : <DemoArtSage />}</div>
-                  <div className="demo-body">
-                    <p className="demo-k">{c.kicker}</p>
-                    <h3>{c.title}</h3>
-                    <p>{c.body}</p>
-                    <ul className="tags" aria-label="Topics">
-                      {c.tags.map((t) => (
-                        <li key={t}>{t}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
-              );
-              const linked = "href" in c && Boolean(c.href);
-              const cls = `card demo-card${linked ? " card--linked" : ""}`;
-              if (linked) {
-                return (
-                  <Link key={c.title} href={c.href} className={cls} data-reveal="" style={d(i)}>
-                    {inner}
-                  </Link>
-                );
-              }
-              return (
-                <article key={c.title} className={cls} data-reveal="" style={d(i)}>
-                  {inner}
-                </article>
-              );
-            })}
-          </div>
+        {/* About */}
+        <section className="section about" id="about" tabIndex={-1} aria-labelledby="about-title">
+          <article className="card card--sky about-card" data-reveal="">
+            <p className="eyebrow">{ABOUT.eyebrow}</p>
+            <h2 id="about-title">{ABOUT.title}</h2>
+            <p className="lead">{ABOUT.body}</p>
+          </article>
         </section>
 
         {/* FAQ */}
@@ -274,11 +315,11 @@ export default function Home() {
             <Image src="/images/topo.jpg" alt="" fill sizes="(min-width: 1024px) 1200px, 100vw" />
           </div>
           <div className="cta-inner">
-            <p className="eyebrow">{FINAL_CTA.eyebrow}</p>
             <h2 id="cta-title">{FINAL_CTA.title}</h2>
             <p className="lead">{FINAL_CTA.lead}</p>
             <div className="cta-row">
               <IntroCallButton variant="secondary" />
+              <p className="cta-under">{FINAL_CTA.under}</p>
               <TrustLine />
               <span className="or">
                 or email{" "}
@@ -292,24 +333,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="wrap footer" data-reveal="">
-        <div className="footer-l">
-          <p className="logo flogo">Perkovic</p>
-          <p className="footer-c">
-            <span>{FOOTER.line1}</span>
-            <span>{FOOTER.line2}</span>
-          </p>
-        </div>
-        <div className="footer-c footer-r">
-          <a className="link" href="https://perkovicdesign.com">
-            {FOOTER.site}
-          </a>
-          <a className="link" href={EMAIL_HREF}>
-            {EMAIL}
-          </a>
-          <span>{FOOTER.copyright}</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
